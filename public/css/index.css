@@ -1,0 +1,171 @@
+body {
+    background-color: #000;
+    color: #fff;
+}
+
+h1 {
+    font-size: 3rem;
+    text-align: center;
+    padding-top: 5rem;
+}
+
+a {
+    color: red;
+}
+
+.table {
+    width: 100%;
+    margin-bottom: 1rem;
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.table th,
+.table td {
+    padding: 0.75rem;
+    vertical-align: top;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.table thead th {
+    vertical-align: bottom;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.table tbody+tbody {
+    border-top: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.table .table-responsive,
+.table-responsive-sm,
+.table-responsive-md,
+.table-responsive-lg,
+.table-responsive-xl {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+}
+
+@media (max-width: 576px) {
+    .table-responsive-sm {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+    }
+
+    .table-responsive-sm>.table {
+        margin-bottom: 0;
+    }
+
+    .table-responsive-sm>.table thead {
+        display: none;
+    }
+
+    .table-responsive-sm>.table tbody,
+    .table-responsive-sm>.table tr,
+    .table-responsive-sm>.table td {
+        display: block;
+        width: 100%;
+        text-align: right;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .table-responsive-sm>.table tbody>tr {
+        display: block;
+        overflow: hidden;
+    }
+
+    .table-responsive-sm>.table tbody>tr>td {
+        display: block;
+        text-align: center;
+        font-size: 1.2rem;
+        border-bottom: 1px dotted rgba(255, 255, 255, 0.1);
+    }
+}
+
+@media (max-width: 767px) {
+    .table-responsive-md {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+    }
+
+    .table-responsive-md>.table {
+        margin-bottom: 0;
+    }
+
+    .table-responsive-md>.table thead {
+        display: none;
+    }
+
+    .table-responsive-md>.table tbody,
+    .table-responsive-md>.table tr,
+    .table-responsive-md>.table td {
+        display: block;
+        width: 100%;
+        text-align: right;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .table-responsive-md>.table tbody>tr {
+        display: block;
+        overflow: hidden;
+    }
+
+    .table-responsive-md>.table tbody>tr>td {
+        display: block;
+        text-align: center;
+        font-size: 1.2rem;
+        border: none;
+        border-bottom: 1px solid #ddd;
+    }
+}
+
+.table-responsive-md>.table tbody>tr>td:last-child {
+    border-bottom: none;
+}
+
+.table-responsive-md>.table thead {
+    display: none;
+}
+
+.table-responsive-md>.table thead th {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .table-responsive-md>.table tbody>tr {
+        display: inline-block;
+    }
+}
+
+.table-responsive-md>.table tbody:before {
+    content: "";
+    display: block;
+    margin-left: -15px;
+    width: 0;
+    height: 0;
+}
+
+.table-responsive-md>.table tbody>tr>td {
+    display: block;
+    text-align: center;
+    border: none;
+    border-bottom: 1px solid #ddd;
+}
+
+.table-responsive-md>.table tbody>tr>td:last-child {
+    border-bottom: none;
+}
+
+.table-responsive-md>.table thead {
+    display: table-header-group;
+}
+
+.table-responsive-md>.table thead th {
+    display: table-cell;
+    font-weight: bold;
+    text-align: center;
+}
