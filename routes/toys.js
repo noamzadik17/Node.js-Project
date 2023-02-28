@@ -4,21 +4,16 @@ const { ToysModel, validateJoi } = require("../models/toysModel");
 const router = express.Router();
 
 router.get("/", async (req, res) => {
-    //http://localhost:3001/toys?page=3&perPage=5
-    //http://localhost:3001/toys?perPage=10
     let perPage = req.query.perPage ? Math.min(req.query.perPage, 10) : 5;
-    //http://localhost:3001/toys?page=1
     let page = req.query.page - 1 || 0;
-    //http://localhost:3001/toys?perPage=5&sort=price
     let sort = req.query.sort || "price";
-    //http://localhost:3001/toys?sort=price&reverse=yes
     let reverse = req.query.reverse == "yes" ? 1 : -1;
     try {
         let data = await ToysModel
-            .find({}) // filter by price range
-            .limit(perPage) // limits of toys per page
-            .skip(page * perPage) // skips of toys per page
-            .sort({ [sort]: reverse }); // sorts by price
+            .find({})
+            .limit(perPage)
+            .skip(page * perPage)
+            .sort({ [sort]: reverse });
         res.json(data);
     } catch (err) {
         console.log(err);
@@ -26,9 +21,7 @@ router.get("/", async (req, res) => {
     }
 });
 
-// finding toys by price range
-// http://localhost:3001/toys/prices?min=60&max=200
-router.get("/prices", async (req, res) => {
+router.get("/price", async (req, res) => {
     let minPrice = req.query.min ? Number(req.query.min) : 0;
     let maxPrice = req.query.max ? Number(req.query.max) : Number.MAX_SAFE_INTEGER;
     try {
@@ -40,11 +33,7 @@ router.get("/prices", async (req, res) => {
     }
 });
 
-
-//finds a single toy by its id
-//http://localhost:3001/toys/single/63f6ae74ab0242c78f84179b
-//http://localhost:3001/toys/single/63f73e9640ed9de8da8a3d8d
-router.get("/single/:id", async (req, res) => {
+router.get("/singleToy/:id", async (req, res) => {
     try {
         let data = await ToysModel.findById(req.params.id);
         res.json(data);
@@ -54,10 +43,6 @@ router.get("/single/:id", async (req, res) => {
     }
 });
 
-// toys/search?s=superman
-//http://localhost:3001/toys/search?s=superman
-//http://localhost:3001/toys/search?s=car
-//http://localhost:3001/toys/search?s=ninja
 router.get("/search", async (req, res) => {
     try {
         let search = req.query.s;
@@ -72,9 +57,6 @@ router.get("/search", async (req, res) => {
     }
 });
 
-//http://localhost:3001/toys/category/lego
-//http://localhost:3001/toys/category/ninja%20turtles
-//http://localhost:3001/toys/category/cars
 router.get("/category/:catName", async (req, res) => {
     try {
         const catName = req.params.catName;
@@ -145,6 +127,5 @@ router.delete("/:idDel", auth, async (req, res) => {
         res.status(502).json({ err })
     }
 })
-
 
 module.exports = router;

@@ -7,16 +7,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
-  <title>API Documentation</title>
+  <link rel="stylesheet" href="../css/index.css">
+  <title>Toys API Documentation</title>
 </head>
 
-<body>
-  <div class="container mt-4"">
-    <h1 class=" text-center display-3 py-5">
-    Toys API Documentation
+
+<body class="bg-black text-white">
+  <div class="container mt-4">
+    <h1 class="text-center display-3 py-5">
+      Toys API Documentation
     </h1>
     <div class="table-responsive">
-      <table class="table table-striped table-hover">
+      <table class="table">
         <thead>
           <tr>
             <th>
@@ -28,7 +30,7 @@
             <th>
               Description
             </th>
-            <th>
+            <th style="padding-left: 24px;">
               Parameters / Request Body
             </th>
           </tr>
@@ -42,32 +44,52 @@
               /toys
             </td>
             <td>
-              Returns a list of toys according to the query parameters.
+              Returns A List Of Toys According To The query.
             </td>
             <td>
               <ul>
                 <li>
-                  <strong>page</strong>
-                  (optional): page number to return (default: 1).
+                  <strong>
+                    page
+                  </strong>
+                  (optional): Page Number To Display (default: 1), For Example:
                   <br>
-                  <a target="_blank" href=" "></a>
+                  <a target="_blank" href="https://noams-toys-api-doc.cyclic.app/toys?page=1">
+                    https://noams-toys-api-doc.cyclic.app/toys?page=1
+                  </a>
                 </li>
+                <br>
                 <li>
-                  <strong>perPage</strong>
-                  (optional): number of toys per page (default: 5, maximum: 10).
+                  <strong>
+                    perPage
+                  </strong>
+                  (optional): Toys To Display Per Page (default: 5, maximum: 10), For Example:
+                  <a target="_blank" href="https://noams-toys-api-doc.cyclic.app/toys?perPage=5">
+                    https://noams-toys-api-doc.cyclic.app/toys?perPage=5
+                  </a>
+                </li>
+                <br>
+                <li>
+                  <strong>
+                    sort
+                  </strong>
+                  (optional): Query To Sort By (default: <strong>price</strong>), For Example:
                   <br>
-                  <a target="_blank" href=" "></a>
+                  <a target="_blank" href="https://noams-toys-api-doc.cyclic.app/toys?sort=price">
+                    https://noams-toys-api-doc.cyclic.app/toys?sort=price
+                  </a>
                 </li>
+                <br>
                 <li>
-                  <strong>sort</strong>
-                  (optional): field to sort by (default: <strong>price</strong>).
-                  <br> <a target="_blank" href="  "></a>
-                </li>
-                <li>
-                  <strong>reverse</strong> (optional): if set to
-                  <strong>yes</strong>, sorts in descending order.
+                  <strong>
+                    reverse
+                  </strong>
+                  (optional): If Reverse Is Set To <strong>yes</strong>, The Sort Will Be In A Descending Order, For
+                  Example:
                   <br>
-                  <a target="_blank" href=" "></a>
+                  <a target="_blank" href="https://noams-toys-api-doc.cyclic.app/toysreverse=yes">
+                    https://noams-toys-api-doc.cyclic.app/toysreverse=yes
+                  </a>
                 </li>
               </ul>
             </td>
@@ -77,21 +99,33 @@
               GET
             </td>
             <td>
-              /toys/prices
+              /toys/price
             </td>
             <td>
-              Returns a list of toys filtered by price range.
+              Returns A List Of Toys That Has Been Filtered By The Desired Price Range.
             </td>
             <td>
               <ul>
                 <li>
-                  <strong>min</strong> (optional): minimum price to filter by
-                  (default: 0).
+                  <strong>
+                    min
+                  </strong>
+                  (optional): Minimum Price Filter (default: 0), For Example:
+                  <br>
+                  <a target="_blank" href="https://noams-toys-api-doc.cyclic.app/toys/price?min=0">
+                    https://noams-toys-api-doc.cyclic.app/toys/price?min=0
+                  </a>
                 </li>
+                <br>
                 <li>
-                  <strong>max</strong> (optional): maximum price to filter by
-                  (default: maximum safe integer).
-                  <br> <a target="_blank" href=""></a>
+                  <strong>
+                    max
+                  </strong>
+                  (optional): Maximum Price Filter (default: maximum safe integer), For Example:
+                  <br>
+                  <a target="_blank" href="https://noams-toys-api-doc.cyclic.app/toys/price?max=200">
+                    https://noams-toys-api-doc.cyclic.app/toys/price?max=200
+                  </a>
                 </li>
               </ul>
             </td>
@@ -101,29 +135,48 @@
               GET
             </td>
             <td>
-              /toys/single/:id
+              /toys/singleToy/:id
             </td>
             <td>
-              Returns a single toy by its ID.
+              Returns A Single Toy By Its ID.
             </td>
             <td>
               <ul>
-                <li><strong>id</strong>: the ID of the toy to retrieve.
-                  <br> <a target="_blank" href="  "></a>
+                <li>
+                  <strong>
+                    id
+                  </strong>:
+                  Returns An Item By Its ID, For Example:
+                  <br>
+                  <a target="_blank"
+                    href="https://noams-toys-api-doc.cyclic.app/toys/singleToy/63fddfb046d8eb4ddc31513a">
+                    https://noams-toys-api-doc.cyclic.app/toys/singleToy/63fddfb046d8eb4ddc31513a
+                  </a>
                 </li>
               </ul>
             </td>
           </tr>
           <tr>
-            <td>GET</td>
-            <td>/toys/search</td>
-            <td>Returns a list of toys matching a search query.</td>
+            <td>
+              GET
+            </td>
+            <td>
+              /toys/search
+            </td>
+            <td>
+              Returns A Toys List Matching A Query.
+            </td>
             <td>
               <ul>
                 <li>
-                  <strong>s</strong>: the search query to match against toy
-                  names or descriptions.
-                  <br> <a target="_blank" href="  "></a>
+                  <strong>
+                    s
+                  </strong>:
+                  Query To Use In Order To Return Matched Toy Names Or Descriptions, For Example:
+                  <br>
+                  <a target="_blank" href="https://noams-toys-api-doc.cyclic.app/toys/search?s=groot">
+                    https://noams-toys-api-doc.cyclic.app/toys/search?s=groot
+                  </a>
                 </li>
               </ul>
             </td>
@@ -136,14 +189,18 @@
               /toys/category/:catName
             </td>
             <td>
-              Returns a list of toys by category.
+              Returns A List By Category.
             </td>
             <td>
               <ul>
                 <li>
-                  <strong>catName</strong>: the name of the category to retrieve
-                  toys for.
-                  <br> <a target="_blank" href="  "></a>
+                  <strong>
+                    catName
+                  </strong>:
+                  The Name Of The Category That Will Return A Toy List Based On The Category, For Example:
+                  <a target="_blank" href="https://noams-toys-api-doc.cyclic.app/toys/category/lego">
+                    https://noams-toys-api-doc.cyclic.app/toys/category/lego
+                  </a>
                 </li>
               </ul>
             </td>
@@ -156,48 +213,75 @@
               /toys
             </td>
             <td>
-              Adds a new toy.
+              Adds A New Toy.
             </td>
             <td>
               <ul>
                 <li>
-                  <strong>Request Body</strong>: Toy data to be added in the
-                  following format.
-                <li> <strong> img_url </strong> is allowed and not required</li>
+                  <strong>
+                    Request Body
+                  </strong>:
+                  Toy Data To Be Added Has To Follow The Format Below.
+                <li>
+                  <strong>
+                    img_url
+                  </strong>
+                  Attribute Is Allowed But Its Not Required.
+                </li>
+                <br>
                 <pre>
 {
-"name": "string",
-"info": "string",
-"category": "string",
-"price": number,
-"img_url": "string" 
+  "name": "string",
+  "info": "string",
+  "category": "string",
+  "price": number,
+  "img_url": "string"
 }
-                    </pre>
+                      </pre>
                 </li>
               </ul>
             </td>
           </tr>
 
           <tr>
-            <td>PUT</td>
-            <td>/toys/:idEdit</td>
-            <td>Updates an existing toy.</td>
+            <td>
+              PUT
+            </td>
+            <td>
+              /toys/:idEdit
+            </td>
+            <td>
+              Updates An Existing Toy.
+            </td>
             <td>
               <ul>
-                <li><strong>idEdit</strong>: the ID of the toy to update.</li>
                 <li>
-                  <strong>Request Body</strong>: Toy data to be updated in the
-                  following format.
-                <li> <strong> img_url </strong> is allowed and not required</li>
+                  <strong>
+                    idEdit
+                  </strong>:
+                  the ID of the toy to update.
+                </li>
+                <li>
+                  <strong>
+                    Request Body
+                  </strong>: Toy Data To Be Added Has To Follow The Format Below.
+                <li>
+                  <strong>
+                    img_url
+                  </strong>
+                  is allowed and not required
+
+                </li>
+                <br>
                 <pre>
 {
-"name": "string",
-"info": "string",
-"category": "string",
-"price": number,
-"img_url": "string"
+  "name": "string",
+  "info": "string",
+  "category": "string",
+  "price": number,
+  "img_url": "string"
 }
-                </pre>
+                  </pre>
                 </li>
               </ul>
             </td>
@@ -210,11 +294,16 @@
               /toys/:idDel
             </td>
             <td>
-              Deletes a toy by its ID.
+              Deletes A Toy By Its ID.
             </td>
             <td>
               <ul>
-                <li><strong>idDel</strong>: the ID of the toy to delete.</li>
+                <li>
+                  <strong>
+                    idDel
+                  </strong>:
+                  ID Of The Toy To Delete.
+                </li>
               </ul>
             </td>
           </tr>
@@ -227,7 +316,7 @@
     <h2 class="display-6">
       Users API
     </h2>
-    <table class="table table-striped table-hover">
+    <table class="table">
       <thead>
         <tr>
           <th>
@@ -253,7 +342,7 @@
             /users
           </td>
           <td>
-            Test endpoint to check if the server is running
+            Test Endpoint To Check If The Server Is Up And Running.
           </td>
           <td>
             N/A
@@ -267,21 +356,21 @@
             /users/userInfo
           </td>
           <td>
-            Get the information for the authenticated user
-            (requires authentication)
+            Get The Iinformation For The Authenticated User (requires authentication).
           </td>
           <td>
             N/A
           </td>
         </tr>
         <tr>
-          <td>POST
+          <td>
+            POST
           </td>
           <td>
             /users
           </td>
           <td>
-            Create a new user
+            Create A New User.
           </td>
           <td>
             { "name": "string", "email": "string", "password": "string" }
@@ -309,7 +398,7 @@
     <h2 class="display-6">
       Users/Admin API
     </h2>
-    <table class="table table-striped table-hover">
+    <table class="table">
       <thead>
         <tr>
           <th>
@@ -339,10 +428,10 @@
         </tr>
         <tr>
           <td>
-            Has the ability to delete all toys from the system
+            Can Delete All Toys From The System.
           </td>
           <td>
-            Can only delete toys that they have created or are associated with their account
+            Can Only Delete Information That Was Modified Or Created By Them.
           </td>
         </tr>
       </tbody>
@@ -352,9 +441,9 @@
   <footer class="mt-5 p-3">
     <div class="container text-center">
       <p>
-        Copyright © 2023
+        Copyright © 2023 |
         <strong>
-          Noam Zadik
+          Made By Noam Zadik
         </strong>
       </p>
       <p>
