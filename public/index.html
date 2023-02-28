@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
+  <title>API Documentation</title>
+</head>
+
+<body>
+  <div class="container mt-4"">
+    <h1 class=" text-center display-3 py-5">
+    Toys API Documentation
+    </h1>
+    <div class="table-responsive">
+      <table class="table table-striped table-hover">
+        <thead>
+          <tr>
+            <th>
+              HTTP Method
+            </th>
+            <th>
+              Route
+            </th>
+            <th>
+              Description
+            </th>
+            <th>
+              Parameters / Request Body
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              GET
+            </td>
+            <td>
+              /toys
+            </td>
+            <td>
+              Returns a list of toys according to the query parameters.
+            </td>
+            <td>
+              <ul>
+                <li>
+                  <strong>page</strong>
+                  (optional): page number to return (default: 1).
+                  <br>
+                  <a target="_blank" href=" "></a>
+                </li>
+                <li>
+                  <strong>perPage</strong>
+                  (optional): number of toys per page (default: 5, maximum: 10).
+                  <br>
+                  <a target="_blank" href=" "></a>
+                </li>
+                <li>
+                  <strong>sort</strong>
+                  (optional): field to sort by (default: <strong>price</strong>).
+                  <br> <a target="_blank" href="  "></a>
+                </li>
+                <li>
+                  <strong>reverse</strong> (optional): if set to
+                  <strong>yes</strong>, sorts in descending order.
+                  <br>
+                  <a target="_blank" href=" "></a>
+                </li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              GET
+            </td>
+            <td>
+              /toys/prices
+            </td>
+            <td>
+              Returns a list of toys filtered by price range.
+            </td>
+            <td>
+              <ul>
+                <li>
+                  <strong>min</strong> (optional): minimum price to filter by
+                  (default: 0).
+                </li>
+                <li>
+                  <strong>max</strong> (optional): maximum price to filter by
+                  (default: maximum safe integer).
+                  <br> <a target="_blank" href=""></a>
+                </li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              GET
+            </td>
+            <td>
+              /toys/single/:id
+            </td>
+            <td>
+              Returns a single toy by its ID.
+            </td>
+            <td>
+              <ul>
+                <li><strong>id</strong>: the ID of the toy to retrieve.
+                  <br> <a target="_blank" href="  "></a>
+                </li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td>GET</td>
+            <td>/toys/search</td>
+            <td>Returns a list of toys matching a search query.</td>
+            <td>
+              <ul>
+                <li>
+                  <strong>s</strong>: the search query to match against toy
+                  names or descriptions.
+                  <br> <a target="_blank" href="  "></a>
+                </li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              GET
+            </td>
+            <td>
+              /toys/category/:catName
+            </td>
+            <td>
+              Returns a list of toys by category.
+            </td>
+            <td>
+              <ul>
+                <li>
+                  <strong>catName</strong>: the name of the category to retrieve
+                  toys for.
+                  <br> <a target="_blank" href="  "></a>
+                </li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              POST
+            </td>
+            <td>
+              /toys
+            </td>
+            <td>
+              Adds a new toy.
+            </td>
+            <td>
+              <ul>
+                <li>
+                  <strong>Request Body</strong>: Toy data to be added in the
+                  following format.
+                <li> <strong> img_url </strong> is allowed and not required</li>
+                <pre>
+{
+"name": "string",
+"info": "string",
+"category": "string",
+"price": number,
+"img_url": "string" 
+}
+                    </pre>
+                </li>
+              </ul>
+            </td>
+          </tr>
+
+          <tr>
+            <td>PUT</td>
+            <td>/toys/:idEdit</td>
+            <td>Updates an existing toy.</td>
+            <td>
+              <ul>
+                <li><strong>idEdit</strong>: the ID of the toy to update.</li>
+                <li>
+                  <strong>Request Body</strong>: Toy data to be updated in the
+                  following format.
+                <li> <strong> img_url </strong> is allowed and not required</li>
+                <pre>
+{
+"name": "string",
+"info": "string",
+"category": "string",
+"price": number,
+"img_url": "string"
+}
+                </pre>
+                </li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              DELETE
+            </td>
+            <td>
+              /toys/:idDel
+            </td>
+            <td>
+              Deletes a toy by its ID.
+            </td>
+            <td>
+              <ul>
+                <li><strong>idDel</strong>: the ID of the toy to delete.</li>
+              </ul>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="container mt-5">
+    <h2 class="display-6">
+      Users API
+    </h2>
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <th>
+            HTTP Method
+          </th>
+          <th>
+            Route
+          </th>
+          <th>
+            Description
+          </th>
+          <th>
+            Request Body
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            GET
+          </td>
+          <td>
+            /users
+          </td>
+          <td>
+            Test endpoint to check if the server is running
+          </td>
+          <td>
+            N/A
+          </td>
+        </tr>
+        <tr>
+          <td>
+            GET
+          </td>
+          <td>
+            /users/userInfo
+          </td>
+          <td>
+            Get the information for the authenticated user
+            (requires authentication)
+          </td>
+          <td>
+            N/A
+          </td>
+        </tr>
+        <tr>
+          <td>POST
+          </td>
+          <td>
+            /users
+          </td>
+          <td>
+            Create a new user
+          </td>
+          <td>
+            { "name": "string", "email": "string", "password": "string" }
+          </td>
+        </tr>
+        <tr>
+          <td>
+            POST
+          </td>
+          <td>
+            /users/login
+          </td>
+          <td>
+            Authenticate a user and receive a JWT token in response
+          </td>
+          <td>
+            { "email": "string", "password": "string" }
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="container mt-5">
+    <h2 class="display-6">
+      Users/Admin API
+    </h2>
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <th>
+            Admin
+          </th>
+          <th>
+            Default User
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            Can Add A New Toy To The System.
+          </td>
+          <td>
+            Can Add A New Toy To The System.
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Can Edit All The Information In The System.
+          </td>
+          <td>
+            Can Only Edit Information That Was Modified Or Created By Them.
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Has the ability to delete all toys from the system
+          </td>
+          <td>
+            Can only delete toys that they have created or are associated with their account
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <footer class="mt-5 p-3">
+    <div class="container text-center">
+      <p>
+        Copyright © 2023
+        <strong>
+          Noam Zadik
+        </strong>
+      </p>
+      <p>
+        Fullstack Web Developer | MongoDB | Node.js | Express.js
+      </p>
+    </div>
+  </footer>
+
+</body>
+
+</html>
