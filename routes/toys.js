@@ -4,7 +4,7 @@ const { ToysModel, validateJoi } = require("../models/toysModel");
 const router = express.Router();
 
 router.get("/", async (req, res) => {
-    let perPage = req.query.perPage ? Math.min(req.query.perPage, 5) : 10;
+    let perPage = req.query.perPage ? Math.min(req.query.perPage, 10) : 5;
     let page = req.query.page - 1 || 0;
     let sort = req.query.sort || "price";
     let reverse = req.query.reverse == "yes" ? 1 : -1;
