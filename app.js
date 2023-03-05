@@ -8,8 +8,8 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));
-app.get('*', function (req, res) {
-    res.status(404).sendFile(path.join(__dirname, "public", "404Page.html"));
+app.all('*', (req, res) => {
+    res.status(404).send('<h1>404! Page not found</h1>');
 });
 routesInit(app);
 const server = http.createServer(app);
