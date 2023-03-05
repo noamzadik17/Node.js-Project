@@ -9,7 +9,7 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));
 app.get('*', function (req, res) {
-    res.status(404).sendFile(path.join(__dirname, "public", "404Page"))
+    res.status(404).sendFile(path.join(__dirname, "public", "404Page.html"));
 });
 routesInit(app);
 const server = http.createServer(app);
