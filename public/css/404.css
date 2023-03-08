@@ -94,18 +94,9 @@ button:active span:nth-child(1) span:nth-child(2) span:nth-child(2) span:nth-chi
 
 a {
     text-decoration: none;
-    color: white;
+    color: #fff;
 }
 
 a:hover {
     color: #ae00af;
-}
-
-.btn-text {
-    color: #fff;
-    text-decoration: none;
-    font-size: 1.5rem;
-    margin-left: 1rem;
-    font-weight: bold;
-    text-transform: uppercase;
 }
